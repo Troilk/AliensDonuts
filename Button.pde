@@ -3,6 +3,7 @@ class Button
   PImage img;
   String text;
   int posX, posY;
+  //period of button highlight
   float highlightTime;
   int sizeX, sizeY;
   float[] tintVal = new float[] { 0, 0, 0 };
@@ -18,6 +19,7 @@ class Button
     this.sizeY = sizeY;
   }
   
+  //updates button brightness
   void update(float time)
   {
      int minTint = 127;
@@ -39,6 +41,7 @@ class Button
      }
   }
   
+  //returns true if button is hovered
   boolean isPressed()
   {
     float halfW = sizeX * 0.5;
@@ -47,6 +50,7 @@ class Button
         mouseY > (posY - halfH) && mouseY < (posY + halfH));
   }
   
+  //draws button
   void draw()
   {
     tint(tintVal[0], tintVal[1], tintVal[2]);

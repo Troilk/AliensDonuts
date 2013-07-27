@@ -23,6 +23,7 @@ color GrassColor;
 PGraphics DrawingPic;
 PGraphics SunPic;
 PGraphics GrassPic;
+//donuts textures
 PImage[] CandyTexs;
 PBox2D box2d;
 ArrayList<Candy> Candies;
@@ -37,6 +38,7 @@ LineManager lineManager;
 boolean displayMenu = true;
 Button btnStart;
 
+//initial setup
 void setup()
 {
   size(640, 960);
@@ -74,6 +76,7 @@ void setup()
   btnStart = new Button(width / 2, height - 200, 400, 80, loadImage("button.png"), "Start game", 0.3);
 }
 
+//drawing menu
 void drawMenu()
 {
   fill(0, 150);
@@ -87,6 +90,7 @@ void drawMenu()
   btnStart.draw();
 }
 
+//predrawing grass to PImage
 void drawGrass()
 {
   GrassPic = createGraphics(width, height);
@@ -105,6 +109,7 @@ void drawGrass()
   GrassPic.endDraw();
 }
 
+//predrawing sun to PImage
 void drawSun()
 {
   int sunWidth = 480;
@@ -125,6 +130,7 @@ void drawSun()
   SunPic.endDraw();
 }
 
+//called after game over to clear donuts list and reset alien position
 void finishGame()
 {
   if(score > highscore)
@@ -141,6 +147,7 @@ void finishGame()
   displayMenu = true;
 }
 
+//updates physics and button
 void update()
 {
   if(displayMenu)
@@ -172,6 +179,7 @@ void update()
   }
 }
 
+//core draw method
 void draw()
 { 
   update();
@@ -180,7 +188,6 @@ void draw()
   sunRotation += 0.003 * clockwise;
   
   float pow = player.getAveragePower();
-  //println(pow);
   if(pow > 0.265 && sunWait > 1.0f)
   {
     clockwise = clockwise == 1 ? -1 : 1;
@@ -224,11 +231,13 @@ void draw()
   }
 }
 
+//adds new segment to line renderer
 void mouseMoved()
 {
   lineManager.addSegment(pmouseX, pmouseY, mouseX, mouseY);
 }
 
+//checks if button was pressed
 void mousePressed()
 {
   if(btnStart.isPressed())
@@ -239,6 +248,7 @@ void mousePressed()
   }
 }
 
+//checks contacts between objects
 void beginContact(Contact cp) 
 {
     // Get both fixtures

@@ -17,7 +17,8 @@ class Candy
   {
     box2d.destroyBody(body);
   }
-
+  
+  //removes candy from physics world and adds to score or removes health
   boolean done() 
   {
     Vec2 pos = box2d.getBodyPixelCoord(body);
@@ -35,7 +36,8 @@ class Candy
     }
     return false;
   }
-
+  
+  //draws donut
   void display() 
   {
     Vec2 pos = box2d.getBodyPixelCoord(body);
@@ -48,7 +50,8 @@ class Candy
     image(img, 0, 0, rad * 2, rad * 2);
     popMatrix();
   }
-
+  
+  //contructs donut physics body
   void makeBody() 
   {
     Vec2 center = new Vec2(random(rad, width - rad), -rad);

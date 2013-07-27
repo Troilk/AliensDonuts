@@ -19,7 +19,8 @@ class LineManager
     currentSegment = 0;
     makeBody();
   }
-
+  
+  //draws line to screen
   void display() 
   {
     strokeWeight(lineWeight);
@@ -41,6 +42,7 @@ class LineManager
     endShape();
   }
   
+  //adds segment to chain, removing old one
   void addSegment(int x1, int y1, int x2, int y2)
   {
     Vec2 newVertex = new Vec2(x2, y2);
@@ -55,7 +57,7 @@ class LineManager
     
     currentSegment = (currentSegment + 1) % segments.length;
   }
-
+  
   void makeBody()
   { 
     BodyDef bd = new BodyDef();
