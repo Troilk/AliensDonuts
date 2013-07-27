@@ -4,6 +4,7 @@ Alien-s-donut
 A small demo made with Processing for Creative Programming for Digital Media &amp; Mobile Apps course assignment.
 Running this demo requires PBox2D library : https://github.com/shiffman/PBox2D
 
+Video : http://www.youtube.com/watch?v=Yu5mjqvfxIg
 Used assets
 =============
 Donuts : http://lharboe.deviantart.com/art/Donuts-93179329 by lharboe
